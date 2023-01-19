@@ -76,6 +76,9 @@ body {
     }
 
     .location {
+      display: flex;
+      align-items: center;
+      gap: 5px;
       margin-top: 150px;
     }
   }
@@ -221,11 +224,20 @@ body {
           &:last-child {
             font-size: 12px;
             margin-top: 20px;
-            text-align: center;
+            // text-align: center;
           }
         }
       }
     }
+  }
+}
+
+.temp {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 40px;
   }
 }
 
@@ -239,4 +251,9 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.perc {
+  display: flex;
+  align-items: center;
 }

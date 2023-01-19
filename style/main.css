@@ -59,6 +59,9 @@ body {
   margin-bottom: 10px;
 }
 .wrapper .sidebar .location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   margin-top: 150px;
 }
 
@@ -176,7 +179,14 @@ body {
 .main .highlights .card2 .content p:last-child {
   font-size: 12px;
   margin-top: 20px;
-  text-align: center;
+}
+
+.temp {
+  display: flex;
+  align-items: center;
+}
+.temp span {
+  font-size: 40px;
 }
 
 .credits {
@@ -188,4 +198,9 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.perc {
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */
