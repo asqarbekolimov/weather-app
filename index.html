@@ -16,86 +16,81 @@
   </head>
   <body>
     <div class="wrapper">
-      <aside class="sidebar">
-        <form>
-          <input type="text" placeholder="Search" required autocomplete="off" />
-          <div class="btn"><i class="fas fa-search"></i></div>
-        </form>
-        <div class="img">
-          <img src="img/sun-cloud.png" alt="" />
-        </div>
-        <div class="degree-today">
-          <div class="temp">
-            <h2 class="degree">25</h2>
-            <span>°C</span>
-          </div>
-          <p class="today">Saturday,</p>
-          <p class="cloud"><i class="fas fa-cloud"></i> Cloud</p>
-          <div class="perc">
-            <i class="fas fa-tint"></i>
-            <div id="perc"></div>
-          </div>
-        </div>
-        <div class="location">
-          <i class="fa-solid fa-location-dot"></i>
-          <div id="location">location</div>
-        </div>
-      </aside>
       <main class="main">
         <nav>
-          <div class="btn-group">
-            <div class="btn active">Today</div>
-            <div class="btn">Weak</div>
-          </div>
-          <div class="btn-group">
-            <div class="wihte"><i class="fa-solid fa-sun"></i></div>
-            <div class="black"><i class="fa-solid fa-moon"></i></div>
+          <div class="form">
+            <input
+              id="searchBox"
+              type="text"
+              placeholder="Search"
+              required
+              autocomplete="off"
+            />
+            <div class="btn"><i class="fas fa-search"></i></div>
           </div>
         </nav>
         <div class="cards" id="weather-cards">
           <div class="card" id="card">
-            <h2 class="day-name">Monday</h2>
-            <div class="card-icon">
-              <img src="img/rain2.png" alt="" />
-            </div>
-            <div class="day-temp">
-              <h3 class="temp">32</h3>
-              <span class="temp-unit">°C</span>
-            </div>
+            <img id="pixbay-bg" src="" alt="" />
           </div>
         </div>
         <div class="highlights">
           <h2 class="heading">Today's highlights</h2>
-          <div class="cards">
-            <div class="card2">
-              <h4 class="card-heading">UV Index</h4>
-              <div class="content">
-                <p class="uv-index">0</p>
-                <p class="uv-text">Low</p>
+          <div class="cardHeader">
+            <div class="degree-today">
+              <div class="temp">
+                <h2 class="degree">-7.03</h2>
+                <span>°C</span>
+              </div>
+              <p class="today">Friday, 10:36 pm</p>
+              <div class="cloud">
+                <img
+                  id="icon"
+                  src="http://openweathermap.org/img/wn/50n.png"
+                  alt=""
+                />
+                <!-- <i class="fas fa-cloud"></i> -->
+                <div id="cloud">Fog</div>
+              </div>
+              <div class="perc">
+                <i class="fas fa-tint"></i>
+                <div id="perc">Humidity-86%</div>
               </div>
             </div>
+          </div>
+          <div class="cards">
             <div class="card2">
               <h4 class="card-heading">Wind Status</h4>
               <div class="content">
-                <p class="wind-speed">0</p>
-                <p class="">Low</p>
+                <p class="windSpeed">0</p>
+                <p class="windDeg">0</p>
               </div>
             </div>
             <div class="card2">
-              <h4 class="card-heading">Sunrise & Sunset</h4>
+              <h4 class="card-heading">Other Status</h4>
               <div class="content">
-                <p class="sunrise">0</p>
-                <p class="sunset">Low</p>
+                <div class="cont">
+                  <img id="icon2" src="" alt="" />
+                  <div id="cloud2"></div>
+                </div>
+                <div id="perc2"></div>
               </div>
             </div>
             <div class="card2">
-              <h4 class="card-heading">Humidity</h4>
+              <h4 class="card-heading">Country Status</h4>
               <div class="content">
-                <p class="humidity">0</p>
-                <p class="humidity-status">Low</p>
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="country"></p>
               </div>
             </div>
             <div class="card2">
+              <h4 class="card-heading">Default Country</h4>
+              <div class="content">
+                <i class="fa-solid fa-location-dot"></i>
+                <p id="location"></p>
+              </div>
+            </div>
+            <!--<div class="card2">
               <h4 class="card-heading">Visiblity</h4>
               <div class="content">
                 <p class="visiblity">0</p>
@@ -108,10 +103,10 @@
                 <p class="air-quality">0</p>
                 <p class="air-quality-status">Low</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <p class="credits">Crafted with ❤ by Asqarbek</p>
+        <!-- <p class="credits">Crafted with ❤ by Asqarbek</p> -->
       </main>
     </div>
     <script src="script/app.js"></script>

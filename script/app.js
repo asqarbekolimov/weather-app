@@ -2,14 +2,17 @@ const data = document.querySelector(".today");
 const degree = document.querySelector(".degree");
 const locationCity = document.querySelector("#location");
 const countryBage = document.querySelector(".country"),
+  countryStatus = document.querySelector(".country"),
   perc = document.querySelector("#perc"),
-  uvIndex = document.querySelector(".uv-index"),
-  windSpeed = document.querySelector(".wind-speed"),
-  sunrise = document.querySelector(".sunrise"),
-  humidity = document.querySelector(".humidity"),
-  visiblity = document.querySelector(".visiblity"),
-  airQuality = document.querySelector(".air-quality"),
-  uvText = document.querySelector(".uv-text");
+  cloud = document.querySelector("#cloud"),
+  icon = document.querySelector("#icon"),
+  cloud2 = document.querySelector("#cloud2"),
+  icon2 = document.querySelector("#icon2"),
+  pixbayBg = document.querySelector("#pixbay-bg"),
+  windSpeed = document.querySelector(".windSpeed"),
+  windDeg = document.querySelector(".windDeg"),
+  searchBox = document.querySelector("#searchBox"),
+  searchBtn = document.querySelector(".btn");
 
 let currentCity = "";
 let currentUnit = "c";
@@ -54,6 +57,18 @@ setInterval(() => {
   data.innerText = getDateTime();
 }, 1000);
 
+// Search
+
+searchBtn.addEventListener("click", setQuery);
+
+function setQuery(e) {
+  // e.preventDefault();
+
+  getWeather(searchBox.value);
+  pixbayImg(searchBox.value);
+  console.log(searchBox.value);
+}
+
 function getPublicIp() {
   fetch("http://ip-api.com/json", {
     method: "GET",
@@ -61,39 +76,53 @@ function getPublicIp() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      currentCity = data.currentCity;
-      getWeatherData(data.city, currentUnit, hourlyorWeek);
+      console.log(data.regionName);
+      getWeather(data.regionName);
+      pixbayImg(data.regionName);
+      locationCity.innerText = data.timezone;
     });
 }
 getPublicIp();
-getWeatherData();
-function getWeatherData(city, unit, hourlyorWeek) {
-  console.log(city);
-  const API_KEY = "BF2DTBBM6U7URDMSERKACTAR5";
+
+function pixbayImg(query) {
+  const api = "25690209-8ec67a7ae564dd9d4d409ef0b";
+  fetch(`https://pixabay.com/api/?key=${api}&q=${query}`)
+    .then((response) => response.json())
+    .then((data) => {
+      pixbayBg.src = data.hits[0].largeImageURL;
+    });
+}
+
+function getWeather(query) {
+  const API_KEY = "149649e4bb2c685ed08f1d1cc5cbbcab";
   fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${API_KEY}&contentType=json`,
-    {
-      method: "GET",
-    }
+    `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${API_KEY}`
   )
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      let city = data.resolvedAddress;
-      locationCity.innerText = city;
-
-      let today = data.currentConditions;
-      degree.innerText = today.temp;
-      perc.innerText = "Perc - " + today.precip + "%";
-      uvIndex.innerText = today.uvindex;
-      windSpeed.innerText = today.windspeed;
-      sunrise.innerText = today.sunrise;
-      humidity.innerText = today.humidity + "%";
-      visiblity.innerText = today.visibility;
-      airQuality.innerText = today.winddir;
-      measureUvIndex(today.uvIndex);
+      degree.innerText = data.main.temp;
+      cloud.innerText = data.weather[0].main;
+      cloud2.innerText = data.weather[0].main;
+      console.log(data.weather[0].main);
+      icon.src = `http://openweathermap.org/img/wn/${
+        data.weather[0].icon + ".png"
+      }`;
+      icon2.src = `http://openweathermap.org/img/wn/${
+        data.weather[0].icon + ".png"
+      }`;
+      perc.innerText = "Humidity-" + data.main.humidity + "%";
+      perc2.innerText = "Humidity-" + data.main.humidity + "%";
+      windSpeed.innerText = "Speed: " + data.wind.speed;
+      windDeg.innerText = "Degree: " + data.wind.deg + "%";
+      countryStatus.innerText =
+        "Country: " + data.name + "," + data.sys.country;
+    })
+    .catch(function () {
+      alert("Not Found Country");
     });
 }
+
 function measureUvIndex() {
   if (uvIndex <= 2) {
     uvText.innerText = "Low";

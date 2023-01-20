@@ -6,121 +6,56 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: aqua;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .wrapper {
   margin: auto;
   width: 80%;
-  // margin-top: 30px;
-  // height: 80%;
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // flex-direction: column;
-  // background-color: aqua;
+  justify-content: center;
 
-  .sidebar {
-    width: 265px;
-    // height: 600px;
-    padding: 30px 25px;
-    border-radius: 12px 0 0 12px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, .5);
-
-    form {
-      display: flex;
-
-      input {
-        border: 2px solid rgba(255, 255, 255, .6);
-        outline: none;
-        padding: 5px;
-      }
-
-      .btn {
-        width: 50px;
-        padding: 5px 10px;
-        border-radius: 0 5px 5px 0;
-        background-color: blue;
-        color: #fff;
-        cursor: pointer;
-      }
-    }
-
-    .img {
-      height: 250px;
-
-      img {
-        width: 100%;
-        margin-top: 15px;
-      }
-    }
-
-    .degree-today {
-      .degree {
-        font-size: 40px;
-        font-weight: 400;
-      }
-
-      .today {
-        margin-top: 10px;
-        margin-bottom: 18px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid rgb(44, 42, 42);
-      }
-
-      .cloud {
-        margin-bottom: 10px;
-      }
-    }
-
-    .location {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 150px;
-    }
-  }
 }
 
 .wrapper {
   .main {
     width: 930px;
-    // height: 600px;
+    height: 92rem;
     padding: 20px 25px;
     border-radius: 0 12px 12px 0;
     background: rgba(255, 255, 255, .9);
 
     nav {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .btn-group {
+      .form {
+        width: 100%;
         display: flex;
-        align-items: center;
-        cursor: pointer;
-        gap: 25px;
-        font-weight: 400;
+
+        input {
+          width: 100%;
+          border: 2px solid rgba(255, 255, 255, .6);
+          outline: none;
+          padding: 5px;
+        }
 
         .btn {
-          font-weight: 600;
-        }
-
-        .active {
-          color: rgb(26, 26, 243);
-        }
-
-        .wihte {
-          font-size: 25px;
-          display: none;
-        }
-
-        .black {
-          font-size: 25px;
+          width: 50px;
+          padding: 5px 10px;
+          border-radius: 0 5px 5px 0;
+          background-color: blue;
+          color: #fff;
+          cursor: pointer;
         }
       }
+
     }
   }
 }
@@ -129,20 +64,27 @@ body {
   main {
     .cards {
       margin-top: 25px;
+      height: 345px;
 
       .card {
-        width: 100px;
-        height: 130px;
+        width: 100%;
+        height: 345px;
         border-radius: 20px;
         color: #1a1a1a;
         // background: #fff;
         background: rgba(255, 255, 255, .6);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         text-align: center;
-        padding: 10px 0;
+        padding: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+        }
 
         h2 {
           font-size: 15px;
@@ -171,6 +113,47 @@ body {
   }
 }
 
+.cardHeader {
+  width: 100%;
+
+  .degree-today {
+    width: 100%;
+    border-radius: 20px;
+    color: #1a1a1a;
+    // background: #fff;
+    background: rgba(255, 255, 255, .6);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-align: center;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .degree {
+      font-size: 40px;
+      font-weight: 400;
+    }
+
+    .today {
+      margin-top: 10px;
+      margin-bottom: 18px;
+    }
+
+    .cloud {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+  }
+}
+
 .main {
   position: relative;
 
@@ -188,17 +171,17 @@ body {
     }
 
     .cards {
+      width: 100%;
       margin-top: 25px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
+      // align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 25px;
     }
 
     .card2 {
-      width: 250px;
+      width: 275px;
       height: 150px;
       border-radius: 20px;
       color: #1a1a1a;
@@ -208,24 +191,34 @@ body {
       display: flex;
       flex-direction: column;
 
+      .content {
+        display: flex;
+
+        // align-items: center;
+        .cont {
+          display: flex;
+          align-items: center;
+        }
+
+        #icon2 {
+          width: 60px;
+        }
+      }
+
       .card-heading {
         color: #c2c2c2;
       }
 
       .content {
         margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+
 
         p {
-          &:first-child {
-            text-align: center;
-            font-size: 30px;
-          }
+          text-align: justify;
 
-          &:last-child {
-            font-size: 12px;
-            margin-top: 20px;
-            // text-align: center;
-          }
         }
       }
     }
@@ -248,12 +241,13 @@ body {
   color: #221f1f;
   position: absolute;
   // top: 10px  ;
-  bottom: 20px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .perc {
   display: flex;
+  gap: 5px;
   align-items: center;
 }
