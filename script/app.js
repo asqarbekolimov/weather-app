@@ -66,7 +66,7 @@ function setQuery(e) {
 
   getWeather(searchBox.value);
   pixbayImg(searchBox.value);
-  console.log(searchBox.value);
+  // console.log(searchBox.value);
 }
 
 function getPublicIp() {
@@ -75,8 +75,8 @@ function getPublicIp() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      console.log(data.regionName);
+      // console.log(data);
+      // console.log(data.regionName);
       getWeather(data.regionName);
       pixbayImg(data.regionName);
       locationCity.innerText = data.timezone;
@@ -100,11 +100,11 @@ function getWeather(query) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       degree.innerText = data.main.temp;
       cloud.innerText = data.weather[0].main;
       cloud2.innerText = data.weather[0].main;
-      console.log(data.weather[0].main);
+      // console.log(data.weather[0].main);
       icon.src = `http://openweathermap.org/img/wn/${
         data.weather[0].icon + ".png"
       }`;

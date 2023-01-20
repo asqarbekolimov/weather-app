@@ -24,7 +24,7 @@ body {
 .wrapper {
   .main {
     width: 930px;
-    height: 92rem;
+    height: 65rem;
     padding: 20px 25px;
     border-radius: 0 12px 12px 0;
     background: rgba(255, 255, 255, .9);
@@ -250,4 +250,16 @@ body {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    .main {
+      height: 92rem;
+    }
+  }
+
+  .degree-today {
+    flex-direction: column;
+  }
 }
